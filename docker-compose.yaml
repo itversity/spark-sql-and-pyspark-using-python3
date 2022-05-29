@@ -23,30 +23,6 @@ services:
       - itvdelabnw
     environment:
       POSTGRES_PASSWORD: itversity
-  itvdflab:
-    build:
-      context: .
-      dockerfile: images/pythonsql/Dockerfile
-    hostname: itvdflab
-    ports:
-      - "8888:8888"
-    volumes:
-      - "./itversity-material:/home/itversity/itversity-material"
-      - "./data:/data"
-    environment:
-      SHELL: /bin/bash
-    networks:
-      - itvdelabnw
-    depends_on:
-      - "pg.itversity.com"
-  pg.itversity.com:
-    image: postgres:13
-    ports:
-      - "5432:5432"
-    networks:
-      - itvdelabnw
-    environment:
-      POSTGRES_PASSWORD: itversity
 networks:
   itvdelabnw:
     name: itvdelabnw
