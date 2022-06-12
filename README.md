@@ -21,50 +21,6 @@ As part of this custom image built by us, we have included the following.
 
 For all video lectures, up-to-date material, live support - feel free to sign up for our Udemy courses or our upcoming guided programs.
 
-## Setup Python and SQL Lab
-
-### Pre-requisites
-
-Here are the pre-requisites to setup the Python and SQL lab.
-* Memory: 8 GB RAM
-* CPU: At least Quadcore
-* If you are using Windows or Mac, make sure to setup Docker Desktop.
-* If your system does not meet the requirement, you need to setup environment using AWS Cloud9.
-* Even if you have 16 GB RAM and the Quadcore CPU, the system might slow down over the usage. You can always using AWS Cloud9 as fallback option.
-
-### Configure Docker Desktop
-
-If you are using Windows or Mac, you need to change the settings to use as much resources as possible.
-* Go to Docker Desktop preferences.
-* Change memory to 4 GB.
-* Change CPUs to the maximum number.
-
-### Clone Repository
-
-Here are the steps one need to follow to setup the lab.
-* Clone the repository by running `git clone https://github.com/itversity/data-engineering-spark`.
-
-### Start Environment
-
-Here are the steps to start the environment.
-* Run `docker-compose up -d --build itvdflab`.
-* It will set up environment with Jupyter Lab and Postgresql. You can validate by running `docker-compose ps`.
-* You can run `docker-compose logs -f` to review the progress.
-* You can stop the environment using `docker-compose stop` command.
-
-### Access the Lab
-
-Here are the steps to access the lab.
-* Make sure both Postgres and Jupyter Lab containers are up and running by using `docker-compose ps`
-* Get the token from the Jupyter Lab container using below command.
-
-```shell
-docker-compose exec itvdflab \
-  sh -c "cat .local/share/jupyter/runtime/jpserver-*.json"
-```
-
-* Use the token to login using [http://localhost:8888/lab](http://localhost:8888/lab)
-
 ### Access Python and SQL Material
 
 Once you login, you should be able to go through the first major module under **itversity-material** to access the content.
@@ -91,17 +47,7 @@ If you are using Windows or Mac, you need to change the settings to use as much 
 ### Setup Environment
 
 Here are the steps one need to follow to setup the lab.
-* Clone the repository by running `git clone https://github.com/itversity/data-engineering-spark`.
-
-### Delete Python and SQL Environment
-
-Hadoop and Spark require more horse power. Also, there is no need to keep containers related to Python and SQL up and running while going through Hadoop and Spark material.
-* We can tear down containers related to Python and SQL by running below command.
-
-```shell
-docker-compose rm -v itvdflab
-docker-compose rm -v pg.itversity.com
-```
+* Clone the repository by running `git clone https://github.com/itversity/spark-sql-and-pyspark-using-python3.git`.
 
 ### Pull the Image
 
